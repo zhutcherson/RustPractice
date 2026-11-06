@@ -2,7 +2,8 @@ use std::io;
 // use RustPractice::add;
 
 fn main() {
-    println!("Hello, world!");
+    println!("\n\nProvide two numbers and an operator to do some cool math!");
+    println!("Use the format: [num1] [operator] [num2]");
 
     // create a storage variable for holding user input
     // currently empty
@@ -17,6 +18,11 @@ fn main() {
     let user_input = user_input.trim();
 
     let input_vector: Vec<&str> = user_input.rsplit(' ').collect();
+
+    if input_vector.len() != 3{
+        println!("You must provide 3 arguments like: [num1] [operator] [num2]");
+        return
+    }
 
     let first_num: i32 = match input_vector[0].parse(){
         Ok(num) => num,
